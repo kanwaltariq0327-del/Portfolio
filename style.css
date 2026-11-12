@@ -752,7 +752,7 @@ main h2::after {
   object-fit: cover;
   border-radius: 10px;
   border: 2px solid #333;
-   padding: 10px;
+  padding: 10px;
 }
 
 .project-info {
@@ -839,21 +839,83 @@ main h2::after {
 /* -----------Contact Section Styling-------------- */
 .contact-section {
   width: 100%;
-  height: 600px;
-  background-image: url(./Assests/download\ \(2\).jpg);
+  height: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(./Assests/photo-1625906097596-69b8d56657ff.avif);
   background-size: cover;
   mask-image: linear-gradient(
     to top,
     transparent,
-    black 82%,
     black 8%,
+    black 92%,
     transparent
   );
 }
 
+.info-section {
+  width: 90%;
+  display: flex;
+  border-radius: 20px;
+  border: 4px solid var(--color);
+  color: var(--color);
+}
 
+.info-section h3 {
+  margin-bottom: 50px;
+  color: var(--color);
+}
 
+.info-section h3::after {
+  content: "";
+  width: 180px;
+  height: 2px;
+  display: block;
+  margin: 10px auto 0;
+  background-color: var(--shadow);
+  border-radius: 20px;
+}
 
+.info-section ul {
+  text-align: start;
+}
+
+.info-section li {
+  list-style: none;
+  cursor: pointer;
+}
+
+.info-section li:hover {
+  opacity: .8;
+}
+
+.info-section i {
+  font-size: 1.7rem;
+  margin-right: 20px;
+}
+
+.info-section a {
+  text-decoration: none;
+  color: var(--color);
+}
+
+.info-section h4 {
+  margin-top: 20px;
+  color: #297d39;
+}
+
+.info-details {
+  border-right: 4px solid var(--color);
+}
+
+.info-details,
+.social-links {
+  text-align: center;
+  width: 100%;
+  padding: 100px 30px;
+  line-height: 47px;
+}
 
 /* ---------------------------------------Media Queries----------------------------------------- */
 @media screen and (max-width: 1100px) {
@@ -971,7 +1033,7 @@ main h2::after {
   .about-section {
     padding: 100px 10px;
   }
-  
+
   .about {
     width: 95%;
     flex-wrap: wrap;
@@ -1069,7 +1131,7 @@ main h2::after {
 
   .hero-img {
     width: 360px;
-    height: 360px
+    height: 360px;
   }
 
   .about {
@@ -1082,14 +1144,26 @@ main h2::after {
   }
 
   .contact-section {
-    mask-image: linear-gradient(
-    to top,
-    transparent,
-    black 8%,
-    black 92%,
-    transparent
-  );
-  background-image: url(./Assests/contactImg2.jpg);
+    height: unset;
+    padding: 50px 0;
+  }
+
+  .info-section {
+    flex-direction: column;
+  }
+
+  .info-section h3::after {
+    margin: 10px 0;
+  }
+
+  .info-details {
+    border: none;
+    border-bottom: 4px solid var(--color);
+  }
+
+  .info-details,
+  .social-links {
+    text-align: start;
   }
 }
 
@@ -1118,7 +1192,6 @@ main h2::after {
     font-size: 100px;
   }
 
-  
   .projects-section {
     padding: 55px 5%;
   }
@@ -1172,5 +1245,17 @@ main h2::after {
 
   .carousel-btn.down {
     margin-top: -35px;
+  }
+
+  .contact-section {
+    height: unset;
+    mask-image: linear-gradient(
+      to top,
+      transparent,
+      black 8%,
+      black 92%,
+      transparent
+    );
+    background-image: url(./Assests/contactImg2.jpg);
   }
 }
