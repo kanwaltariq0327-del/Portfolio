@@ -570,7 +570,7 @@ main h2::after {
 
 /* -----------About Section Styling-------------- */
 .about-section {
-  background-image: url(./Assests/bgAttachment.jpg);
+  background-image: url(./Assets/bgAttachment.jpg);
   background-size: cover;
   background-position: 50%;
   background-attachment: fixed;
@@ -606,6 +606,10 @@ main h2::after {
 
 /* -----------Project Section Styling-------------- */
 
+/* =========================================
+   PROJECTS SECTION
+========================================= */
+
 .projects-section {
   width: 100%;
   padding: 80px 6%;
@@ -620,7 +624,9 @@ main h2::after {
   margin-bottom: 50px;
 }
 
-/* Project options */
+/* =========================================
+   NAVIGATOR
+========================================= */
 
 .navigator {
   flex: 0 0 250px;
@@ -628,7 +634,8 @@ main h2::after {
 
 .navigator h2 {
   font-size: 1.5rem;
-  width: 450px;
+  width: 100%;
+  margin-bottom: 30px;
 }
 
 .navigator ul {
@@ -659,7 +666,9 @@ main h2::after {
   transform: translateX(8px);
 }
 
-/* Project display */
+/* =========================================
+   PROJECT DISPLAY
+========================================= */
 
 .projects-display {
   flex: 1;
@@ -674,14 +683,18 @@ main h2::after {
   display: block;
 }
 
-/* Vertical carousel */
+/* =========================================
+   VERTICAL CAROUSEL
+   JavaScript controls the movement
+========================================= */
 
 .project-carousel {
   height: 870px;
+  width: 100%;
   overflow: hidden;
   position: relative;
 
-  /* Fade at the top and bottom */
+  /* Fade effect at top and bottom */
   mask-image: linear-gradient(
     to bottom,
     transparent,
@@ -690,48 +703,43 @@ main h2::after {
     transparent
   );
 
-  overflow-y: auto;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-
-  scrollbar-width: none;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 8%,
+    black 92%,
+    transparent
+  );
 }
 
-.project-carousel::-webkit-scrollbar {
-  display: none;
-}
+/* Carousel track */
 
 .project-track {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  animation: verticalScroll 18s linear infinite;
+
+  transform: translateY(0);
+  transition: transform 0.6s ease-in-out;
+
+  will-change: transform;
+
+  /* Prevent old CSS animation from interfering */
+  animation: none !important;
 }
 
-/* Pause animation on hover */
-
-.project-carousel:hover .project-track {
-  animation-play-state: paused;
-}
-
-@keyframes verticalScroll {
-  from {
-    transform: translateY(0);
-  }
-
-  to {
-    transform: translateY(-50%);
-  }
-}
-
-/* Project cards */
+/* =========================================
+   PROJECT CARDS
+========================================= */
 
 .project-card {
   min-height: 350px;
   flex-shrink: 0;
+
   background: var(--dark-shadow);
   border: 1px solid var(--dark-shadow);
   border-radius: 14px;
+
   overflow: hidden;
 
   display: flex;
@@ -739,6 +747,7 @@ main h2::after {
   gap: 25px;
 
   padding: 18px;
+
   transition: border-color 0.3s ease;
 }
 
@@ -749,9 +758,12 @@ main h2::after {
 .project-card img {
   width: 40%;
   height: 280px;
+
   object-fit: cover;
+
   border-radius: 10px;
   border: 2px solid #333;
+
   padding: 10px;
 }
 
@@ -775,11 +787,15 @@ main h2::after {
 .project-info a {
   display: inline-block;
   text-decoration: none;
+
   background: var(--lime-green);
   color: var(--dark-shadow);
+
   box-shadow: 0 4px 25px black;
+
   padding: 11px 22px;
   border-radius: 6px;
+
   font-weight: 600;
   transition: 0.3s ease;
 }
@@ -789,14 +805,18 @@ main h2::after {
   transform: translateY(-3px);
 }
 
-/* Navigation buttons */
+/* =========================================
+   CAROUSEL NAVIGATION BUTTONS
+========================================= */
 
 .carousel-btn {
-  position: sticky;
+  position: absolute;
+
   left: 50%;
   transform: translateX(-50%);
 
   z-index: 10;
+
   width: 42px;
   height: 42px;
 
@@ -811,25 +831,37 @@ main h2::after {
   color: var(--shadow);
 
   cursor: pointer;
+
   opacity: 0;
-  transition: 0.3s ease;
+  visibility: hidden;
+
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease;
 }
+
+/* Up button */
 
 .carousel-btn.up {
-  top: 10px;
-  margin-bottom: -42px;
+  top: 12px;
 }
+
+/* Down button */
 
 .carousel-btn.down {
-  bottom: 10px;
-  margin-top: -42px;
+  bottom: 12px;
 }
 
-/* Show buttons on hover */
+/* Show buttons when hovering over carousel */
 
 .project-carousel:hover .carousel-btn {
   opacity: 1;
+  visibility: visible;
 }
+
+/* Button hover effect */
 
 .carousel-btn:hover {
   color: var(--lime-green);
@@ -843,7 +875,7 @@ main h2::after {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url(./Assests/photo-1625906097596-69b8d56657ff.avif);
+  background-image: url(./Assets/photo-1625906097596-69b8d56657ff.avif);
   background-size: cover;
   mask-image: linear-gradient(
     to top,
@@ -887,7 +919,7 @@ main h2::after {
 }
 
 .info-section li:hover {
-  opacity: .8;
+  opacity: 0.8;
 }
 
 .info-section i {
@@ -1068,8 +1100,9 @@ main h2::after {
 
   .navigator ul {
     flex-direction: row;
+    gap: 15px;
     overflow-x: auto;
-    padding: 5px 0 15px;
+    padding: 5px 5px 15px;
   }
 
   .nav-item {
@@ -1200,8 +1233,17 @@ main h2::after {
     font-size: 1.6rem;
   }
 
+  .navigator ul {
+    gap: 10px;
+  }
+
+  .nav-item {
+    font-size: 0.85rem;
+    padding: 12px 15px;
+  }
+
   .project-carousel {
-    height: 440px;
+    height: 700px;
   }
 
   .project-card {
@@ -1209,6 +1251,7 @@ main h2::after {
     flex-direction: column;
     align-items: stretch;
     gap: 10px;
+    padding: 14px;
   }
 
   .project-card img {
@@ -1231,7 +1274,7 @@ main h2::after {
   }
 
   .project-info a {
-    padding: 9px 16px;
+    padding: 4px 7px;
   }
 
   .carousel-btn {
@@ -1246,6 +1289,7 @@ main h2::after {
   .carousel-btn.down {
     margin-top: -35px;
   }
+  
 
   .contact-section {
     height: unset;
@@ -1257,5 +1301,19 @@ main h2::after {
       transparent
     );
     background-image: url(./Assests/contactImg2.jpg);
+  }
+}
+
+@media (max-width: 380px) {
+  .project-carousel {
+    height: 650px;
+  }
+
+  .project-card img {
+    height: 145px;
+  }
+
+  .project-info p {
+    font-size: 0.82rem;
   }
 }
