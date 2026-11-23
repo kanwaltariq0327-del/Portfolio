@@ -157,6 +157,14 @@ const projects = {
       link: "https://travel-website-react-kohl.vercel.app/",
     },
     {
+      title: "Shopping Cart",
+      description:
+        "An Online Shopping Cart using react as front-end connecting node.js as a back-end server. A website made functional using react-router-dom, react-redux-toolkit, state management, slices, store & async thunks.",
+      image:
+        "Assets/react+back.png",
+      link: "https://shopping-cart-dusky-seven-60.vercel.app/",
+    },
+    {
       title: "Food Recipe App",
       description:
         "A recipe app built using React with reusable components, context API, hooks and responsive layouts.",
@@ -226,12 +234,12 @@ const projects = {
   // Backend Projects
   backendProjects: [
     {
-      title: "Personal Portfolio",
+      title: "Shopping Cart",
       description:
-        "A personal portfolio website showcasing skills, projects and learning progress.",
+        "An Online Shopping Cart using react as front-end connecting node.js as a back-end server. A website made functional using react-router-dom, react-redux-toolkit, state management, slices, store & async thunks.",
       image:
-        "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600",
-      link: "#",
+        "Assets/react+back.png",
+      link: "https://shopping-cart-dusky-seven-60.vercel.app/",
     },
     {
       title: "Developer Profile",
