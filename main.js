@@ -159,7 +159,7 @@ const projects = {
     {
       title: "Shopping Cart",
       description:
-        "An Online Shopping Cart using react as front-end connecting node.js as a back-end server. A website made functional using react-router-dom, react-redux-toolkit, state management, slices, store & async thunks.",
+        "A Shopping Cart using node.js & react with react-router-dom, react-redux-toolkit, state management, slices, store & async thunks.",
       image:
         "Assets/react+back.png",
       link: "https://shopping-cart-dusky-seven-60.vercel.app/",
@@ -236,7 +236,7 @@ const projects = {
     {
       title: "Shopping Cart",
       description:
-        "An Online Shopping Cart using react as front-end connecting node.js as a back-end server. A website made functional using react-router-dom, react-redux-toolkit, state management, slices, store & async thunks.",
+        "A Shopping Cart using node.js & react with react-router-dom, react-redux-toolkit, state management, slices, store & async thunks.",
       image:
         "Assets/react+back.png",
       link: "https://shopping-cart-dusky-seven-60.vercel.app/",
@@ -345,19 +345,21 @@ carousels.forEach((carousel) => {
 
   function updateDimensions() {
 
-    const firstCard = track.children[1];
+  const firstCard = track.children[1];
 
-    if (!firstCard) return;
+  if (!firstCard) return;
 
-    const gap = parseFloat(
-      getComputedStyle(track).gap
-    ) || 0;
+  const gap = parseFloat(
+    getComputedStyle(track).gap
+  ) || 0;
 
-    cardStep = firstCard.offsetHeight + gap;
+  cardStep = firstCard.offsetHeight + gap;
 
-    updatePosition(false);
+  isAnimating = false;
 
-  }
+  updatePosition(false);
+
+}
 
 
   // 5. UPDATE CAROUSEL POSITION
@@ -365,7 +367,7 @@ carousels.forEach((carousel) => {
   function updatePosition(animate = true) {
 
     track.style.transition = animate
-      ? "transform 0.6s ease-in-out"
+      ? "transform 0.3s ease-in-out"
       : "none";
 
     track.style.transform =
@@ -378,44 +380,48 @@ carousels.forEach((carousel) => {
 
   function moveCarousel(direction) {
 
-    if (isAnimating || cardStep === 0) return;
+  if (isAnimating || cardStep === 0) return;
 
-    isAnimating = true;
+  isAnimating = true;
 
-    currentIndex += direction;
+  currentIndex += direction;
 
-    updatePosition(true);
+  updatePosition(true);
 
-  }
+  setTimeout(() => {
+
+    isAnimating = false;
+
+  }, 250);
+
+}
 
 
   // 7. HANDLE INFINITE LOOP
 
   track.addEventListener("transitionend", (event) => {
 
-    if (event.propertyName !== "transform") return;
+  if (event.propertyName !== "transform") return;
 
-    // Reached the clone of the last card
-    if (currentIndex === 0) {
+  if (currentIndex === 0) {
 
-      currentIndex = totalCards;
+    currentIndex = totalCards;
 
-      updatePosition(false);
+    updatePosition(false);
 
-    }
+  }
 
-    // Reached the clone of the first card
-    else if (currentIndex === totalCards + 1) {
+  else if (currentIndex === totalCards + 1) {
 
-      currentIndex = 1;
+    currentIndex = 1;
 
-      updatePosition(false);
+    updatePosition(false);
 
-    }
+  }
 
-    isAnimating = false;
+  isAnimating = false;
 
-  });
+});
 
 
   // 8. UP BUTTON

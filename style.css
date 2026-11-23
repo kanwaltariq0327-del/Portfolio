@@ -693,28 +693,12 @@ main h2::after {
   width: 100%;
   overflow: hidden;
   position: relative;
-
-  /* Fade effect at top and bottom */
-  mask-image: linear-gradient(
-    to bottom,
-    transparent,
-    black 8%,
-    black 92%,
-    transparent
-  );
-
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    transparent,
-    black 8%,
-    black 92%,
-    transparent
-  );
 }
 
 /* Carousel track */
 
 .project-track {
+  max-width: 650px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -733,7 +717,7 @@ main h2::after {
 ========================================= */
 
 .project-card {
-  min-height: 350px;
+  min-height: 280px;
   flex-shrink: 0;
 
   background: var(--dark-shadow);
@@ -757,7 +741,7 @@ main h2::after {
 
 .project-card img {
   width: 40%;
-  height: 280px;
+  height: 230px;
 
   object-fit: cover;
 
@@ -838,7 +822,6 @@ main h2::after {
   transition:
     opacity 0.3s ease,
     visibility 0.3s ease,
-    background 0.3s ease,
     color 0.3s ease;
 }
 
@@ -1105,6 +1088,10 @@ main h2::after {
     padding: 5px 5px 15px;
   }
 
+  .project-panel {
+    padding-left: 100px;
+  }
+
   .nav-item {
     flex-shrink: 0;
     white-space: nowrap;
@@ -1116,7 +1103,7 @@ main h2::after {
   }
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 850px) {  
   .led-container {
     border: none;
   }
@@ -1174,6 +1161,14 @@ main h2::after {
   .about img {
     width: 260px;
     height: 350px;
+  }
+
+  .project-panel {
+    padding-left: 0;
+  }
+
+  .projects-section {
+    font-size: 15px;
   }
 
   .contact-section {
@@ -1250,10 +1245,15 @@ main h2::after {
     height: 700px;
   }
 
+  .project-track {
+    align-items: center;
+  }
+
   .project-card {
+    max-width: 380px;
     min-height: 330px;
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;
     gap: 10px;
     padding: 14px;
   }
@@ -1293,7 +1293,6 @@ main h2::after {
   .carousel-btn.down {
     margin-top: -35px;
   }
-  
 
   .contact-section {
     height: unset;
@@ -1316,16 +1315,17 @@ main h2::after {
     margin: 10px auto 0;
   }
 
-  .info-details, .social-links {
+  .info-details,
+  .social-links {
     padding: 38px 12px;
     font-size: 15px;
   }
 
-  .info-details i, .social-links i {
+  .info-details i,
+  .social-links i {
     margin-right: 0;
     font-size: 25px;
   }
-
 }
 
 @media (max-width: 380px) {
